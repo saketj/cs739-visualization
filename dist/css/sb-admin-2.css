@@ -235,7 +235,7 @@ table.dataTable thead .sorting:after {
   margin: 15px 0;
 }
 .huge {
-  font-size: 40px;
+  font-size: 20px;
 }
 .panel-green {
   border-color: #5cb85c;
@@ -278,6 +278,20 @@ table.dataTable thead .sorting:after {
 }
 .panel-yellow > a:hover {
   color: #df8a13;
+}
+.panel-mediumpurple {
+  border-color: mediumpurple;
+}
+.panel-mediumpurple > .panel-heading {
+  border-color: mediumpurple;
+  color: white;
+  background-color: mediumpurple;
+}
+.panel-mediumpurple > a {
+  color: mediumpurple;
+}
+.panel-mediumpurple > a:hover {
+  color: #6636c6;
 }
 .timeline {
   position: relative;
@@ -431,4 +445,8 @@ table.dataTable thead .sorting:after {
     border-right-width: 14px;
     border-left-width: 0;
   }
+}
+#vis-network {
+  width: 1024px;
+  height: 600px;
 }

@@ -98,6 +98,9 @@ gulp.task('copy', function() {
     gulp.src(['bower_components/raphael/raphael.js', 'bower_components/raphael/raphael.min.js'])
         .pipe(gulp.dest('vendor/raphael'))
 
+    gulp.src(['bower_components/vis/dist/vis.js', 'bower_components/vis/dist/vis.min.js'])
+        .pipe(gulp.dest('vendor/vis'))
+
 })
 
 // Run everything

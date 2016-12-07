@@ -317,7 +317,7 @@ table.dataTable thead .sorting:after {
 // Custom Colored Panels
 
 .huge {
-    font-size: 40px;
+    font-size: 20px;
 }
 
 .panel-green {
@@ -364,6 +364,22 @@ table.dataTable thead .sorting:after {
         }
     }
 }
+
+.panel-mediumpurple {
+    border-color: mediumpurple;
+    > .panel-heading {
+        border-color: mediumpurple;
+        color: white;
+        background-color: mediumpurple;
+    }
+    > a {
+        color: mediumpurple;
+        &:hover {
+            color: darken(mediumpurple, 15%);
+        }
+    }
+}
+
 
 // Timeline
 .timeline {
@@ -545,4 +561,9 @@ table.dataTable thead .sorting:after {
         border-right-width: 14px;
         border-left-width: 0;
     }
+}
+
+#vis-network {
+  width: 1024px;
+  height: 600px;
 }
