@@ -43,29 +43,43 @@ $(function() {
 
 
 $(function() {
-    // create an array with nodes
-    var nodes = new vis.DataSet([
-        {id: 1, label: 1, color:'#97C2FC'},
-        {id: 2, label: 2, color:'#FFFF00'},
-        {id: 3, label: 3, color:'#FB7E81'},
-        {id: 4, label: 4, color:'#7BE141'},
-        {id: 5, label: 5, color:'#6E6EFD'},
-        {id: 6, label: 6, color:'#C2FABC'},
-        {id: 7, label: 7, color:'#FFA807'},
-        {id: 8, label: 8, color:'#6E6EFD'}
-    ]);
+    var nodes = null;
+    var edges = null;
+    var network = null;
 
-    // create an array with edges
-    var edges = new vis.DataSet([
-        {from: 1, to: 8, color:{color:'red'}},
-        {from: 1, to: 3, color:'rgb(20,24,200)'},
-        {from: 1, to: 2, color:{color:'rgba(30,30,30,0.2)', highlight:'blue'}},
-        {from: 2, to: 4, color:{inherit:'to'}},
-        {from: 2, to: 5, color:{inherit:'from'}},
-        {from: 5, to: 6, color:{inherit:'both'}},
-        {from: 6, to: 7, color:{color:'#ff0000', opacity:0.3}},
-        {from: 6, to: 8, color:{opacity:0.3}},
-    ]);
+    var LENGTH_MAIN = 350,
+        LENGTH_SERVER = 150,
+        LENGTH_SUB = 50,
+        WIDTH_SCALE = 2,
+        GREEN = 'green',
+        RED = '#C5000B',
+        ORANGE = 'orange',
+        GRAY = 'gray',
+        BLACK = '#2B1B17';
+
+    // Create a data table with nodes.
+    nodes = [];
+
+    // Create a data table with links.
+    edges = [];
+
+    nodes.push({id: 1, label: "Meza'15", group: 'report' });
+    nodes.push({id: 2, label: "Grupp'09", group: 'survey' });
+    nodes.push({id: 3, label: "Schroeder'16", group: 'analysis' });
+    nodes.push({id: 4, label: "Narayanan'16", group: 'study' });
+    nodes.push({id: 5, label: "Zheng'16", group: 'idea' });
+    nodes.push({id: 6, label: "Wang'16", group: 'idea'});
+
+    edges.push({from: 1, to: 2, arrows: 'to' });
+    edges.push({from: 1, to: 6, arrows: 'to' });
+    edges.push({from: 1, to: 3, arrows: 'to' });
+    edges.push({from: 2, to: 4, arrows: 'to' });
+    edges.push({from: 2, to: 3, arrows: 'to' });
+    edges.push({from: 2, to: 5, arrows: 'to' });
+
+    var all_nodes = new vis.DataSet(nodes);
+    var all_edges = new vis.DataSet(edges);
+
 
     // create a network
     var container = document.getElementById('vis-network');
@@ -73,6 +87,72 @@ $(function() {
         nodes: nodes,
         edges: edges
     };
-    var options = {};
-    var network = new vis.Network(container, data, options);
+    var options = {
+        nodes: {
+            font:{
+                size:20
+            }
+        },
+        edges: {
+            color: GRAY,
+            width: 2,
+            selectionWidth: function (width) {return width*2;}
+        },
+        groups: {
+            report: {
+                shape: 'box',
+                color: '#f0ad4e' // orange
+            },
+            survey: {
+                shape: 'box',
+                color: '#f0ad4e' // orange
+            },
+            analysis: {
+                shape: 'box',
+                color: '#f0ad4e' // orange
+            },
+            study: {
+                shape: 'box',
+                color: '#f0ad4e' // orange
+            },
+            idea: {
+                shape: 'box',
+                color: '#f0ad4e' // orange
+            }
+        },
+        layout: {
+            hierarchical: {
+                enabled:true,
+                levelSeparation: 150,
+                nodeSpacing: 300,
+                treeSpacing: 200,
+                blockShifting: false,
+                edgeMinimization: false,
+                parentCentralization: true,
+                direction: 'UD',        // UD, DU, LR, RL
+                sortMethod: 'hubsize'   // hubsize, directed
+            }
+        }
+    };
+    network = new vis.Network(container, data, options);
+
+    network.on("selectNode", function (params) {
+        if (all_nodes.get(params.nodes[0])) {
+            $("#paper-title").fadeOut();
+            $("#paper-title").fadeIn();
+        }
+    });
+
+    network.on("selectEdge", function (params) {
+        if (params.nodes.length == 0 && all_edges.get(params.edges[0])) {
+            $("#paper-highlights").fadeOut();
+            $("#paper-highlights").fadeIn();
+        }
+    });
+
+});
+
+$("#download-paper-btn").click(function () {
+    $("#paper-title").fadeOut();
+    $("#paper-title").fadeIn();
 });
