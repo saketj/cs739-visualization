@@ -39,7 +39,8 @@
     "datatables-responsive": "1.0.6",
     "bootstrap-social": "~4.8.0",
     "flot.tooltip": "~0.8.4",
-    "vis": "^4.17.0"
+    "vis": "^4.17.0",
+    "sprintf": "^1.0.3"
   },
   "resolutions": {
     "font-awesome": "~4.6.3"

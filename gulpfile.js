@@ -40,7 +40,7 @@ gulp.task('minify-css', ['less'], function() {
 
 // Copy JS to dist
 gulp.task('js', function() {
-    return gulp.src(['js/sb-admin-2.js'])
+    return gulp.src(['js/sb-admin-2.js', 'js/ssd.js'])
         .pipe(header(banner, { pkg: pkg }))
         .pipe(gulp.dest('dist/js'))
         .pipe(browserSync.reload({
@@ -50,7 +50,7 @@ gulp.task('js', function() {
 
 // Minify JS
 gulp.task('minify-js', ['js'], function() {
-    return gulp.src('js/sb-admin-2.js')
+    return gulp.src(['js/sb-admin-2.js', 'js/ssd.js'])
         .pipe(uglify())
         .pipe(header(banner, { pkg: pkg }))
         .pipe(rename({ suffix: '.min' }))
@@ -100,6 +100,9 @@ gulp.task('copy', function() {
 
     gulp.src(['bower_components/vis/dist/vis.js', 'bower_components/vis/dist/vis.min.js'])
         .pipe(gulp.dest('vendor/vis'))
+
+    gulp.src(['bower_components/sprintf/dist/sprintf.min.js'])
+        .pipe(gulp.dest('vendor/sprintf'))
 
 })
 

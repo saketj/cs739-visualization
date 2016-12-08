@@ -46,21 +46,25 @@ $(function() {
     }
 });
 
+var components = {
+    "SSD": SSD
+};
 
-$(function() {
-    var nodes = null;
-    var edges = null;
-    var network = null;
+var component_ui_name = {
+    "PROCESSOR": "Processor",
+    "MEMORY": "Memory",
+    "DISK": "Disks",
+    "SSD": "SSD",
+    "NETWORK": "Network"
+};
 
-    var LENGTH_MAIN = 350,
-        LENGTH_SERVER = 150,
-        LENGTH_SUB = 50,
-        WIDTH_SCALE = 2,
-        GREEN = 'green',
-        RED = '#C5000B',
-        ORANGE = 'orange',
-        GRAY = 'gray',
-        BLACK = '#2B1B17';
+var selected_component_id = "SSD";
+var nodes, edges, network, all_nodes, all_edges;
+
+function initDashboard() {
+    nodes = null;
+    edges = null;
+    network = null;
 
     // Create a data table with nodes.
     nodes = [];
@@ -68,22 +72,36 @@ $(function() {
     // Create a data table with links.
     edges = [];
 
-    nodes.push({id: 1, label: "Meza'15", group: 'report' });
-    nodes.push({id: 2, label: "Grupp'09", group: 'survey' });
-    nodes.push({id: 3, label: "Schroeder'16", group: 'analysis' });
-    nodes.push({id: 4, label: "Narayanan'16", group: 'study' });
-    nodes.push({id: 5, label: "Zheng'16", group: 'idea' });
-    nodes.push({id: 6, label: "Wang'16", group: 'idea'});
+    var selected_component = components[selected_component_id];
 
-    edges.push({from: 1, to: 2, arrows: 'to' });
-    edges.push({from: 1, to: 6, arrows: 'to' });
-    edges.push({from: 1, to: 3, arrows: 'to' });
-    edges.push({from: 2, to: 4, arrows: 'to' });
-    edges.push({from: 2, to: 3, arrows: 'to' });
-    edges.push({from: 2, to: 5, arrows: 'to' });
+    // Create the nodes.
+    for (var i = 0; i < selected_component.nodes.length; ++i) {
+        var node = selected_component.nodes[i];
+        nodes.push({
+            id: node.id,
+            label: node.label,
+            group: selected_component.topic,
+            "paper-title": node["paper-title"],
+            "paper-highlights": node["paper-highlights"],
+            "paper-observations": node["paper-observations"],
+            "download-link": node["download-link"]
+        });
+    }
 
-    var all_nodes = new vis.DataSet(nodes);
-    var all_edges = new vis.DataSet(edges);
+    // Create the edges.
+    for (var i = 0; i < selected_component.edges.length; ++i) {
+        var edge = selected_component.edges[i];
+        edges.push({
+            from: edge.from,
+            to: edge.to,
+            arrows: 'to',
+            "edge-highlights": edge["edge-highlights"],
+            "edge-observations": edge["edge-observations"]
+        });
+    }
+
+    all_nodes = new vis.DataSet(nodes);
+    all_edges = new vis.DataSet(edges);
 
 
     // create a network
@@ -95,11 +113,11 @@ $(function() {
     var options = {
         nodes: {
             font:{
-                size:20
+                size:30
             }
         },
         edges: {
-            color: GRAY,
+            color: '#34495E',
             width: 2,
             selectionWidth: function (width) {return width*2;}
         },
@@ -116,7 +134,7 @@ $(function() {
                 shape: 'box',
                 color: '#f0ad4e' // orange
             },
-            study: {
+            SSD: {
                 shape: 'box',
                 color: '#f0ad4e' // orange
             },
@@ -142,22 +160,118 @@ $(function() {
     network = new vis.Network(container, data, options);
 
     network.on("selectNode", function (params) {
-        if (all_nodes.get(params.nodes[0])) {
-            $("#paper-title").fadeOut();
-            $("#paper-title").fadeIn();
+        var selectedNode = all_nodes.get(params.nodes[0]);
+        if (selectedNode) {
+            populateNodeData(selectedNode);
         }
     });
 
     network.on("selectEdge", function (params) {
-        if (params.nodes.length == 0 && all_edges.get(params.edges[0])) {
-            $("#paper-highlights").fadeOut();
-            $("#paper-highlights").fadeIn();
+        var selectedEdge = all_edges.get(params.edges[0]);
+        if (params.nodes.length == 0 && selectedEdge) {
+            populateEdgeData(selectedEdge);
         }
     });
 
-});
+
+    // Initialize UI elements.
+    $('.component-ui-name').each(function() {
+       $(this).text(component_ui_name[selected_component_id]);
+    });
+    $("#ssd-papers-count").text(selected_component.nodes.length);
+    populateNodeData(selected_component.nodes[0]);
+
+    // Initialize Timeline.
+    initTimeline(selected_component["timeline"]);
+}
+
+function populateNodeData(selectedNode) {
+    $("#paper-title").fadeOut(500, function() {
+        $("#paper-title").text(selectedNode["paper-title"]);
+    });
+    $("#paper-title").fadeIn();
+
+    $("#paper-highlights").fadeOut(500, function() {
+        $("#paper-highlights").text(selectedNode["paper-highlights"]);
+    });
+    $("#paper-highlights").fadeIn();
+
+    $("a#download-paper-btn").attr('href', selectedNode["download-link"]);
+
+    $("#paper-observations").fadeOut(500, function() {
+        $("#paper-observations").html(selectedNode["paper-observations"]);
+    });
+    $("#paper-observations").fadeIn();
+}
+
+function populateEdgeData(selectedEdge) {
+    $("#paper-title").fadeOut(500, function() {
+        var fromNode = all_nodes.get(selectedEdge['from']);
+        var toNode = all_nodes.get(selectedEdge['to']);
+        $("#paper-title").text(fromNode['label'] + " is cited by " + toNode['label']);
+    });
+    $("#paper-title").fadeIn();
+
+    $("#paper-highlights").fadeOut(500, function() {
+        $("#paper-highlights").text(selectedEdge["edge-highlights"]);
+    });
+    $("#paper-highlights").fadeIn();
+    $("#paper-observations").fadeOut(500, function() {
+        $("#paper-observations").html(selectedEdge["edge-observations"]);
+    });
+    $("#paper-observations").fadeIn();
+}
+
+function initTimeline(timeline) {
+    var htmlContent = "";
+    for (var i = 0; i < timeline.length; ++i) {
+        var item = timeline[i];
+        if (i % 2 == 0) {
+            htmlContent = htmlContent + "<li>" + getTimelineItemHtml(item) + "</li>";
+        } else {
+            htmlContent = htmlContent + '<li class="timeline-inverted">' + getTimelineItemHtml(item) + "</li>";
+        }
+    }
+    $("#research-timeline").html(htmlContent);
+}
+
+function getTimelineItemHtml(item) {
+    var impact = "";
+    if (item['impact']) {
+        switch(item['impact'].toLowerCase()) {
+            case "high": impact = "danger"; break;
+            case "medium": impact = "success"; break;
+            case "low": impact = "info"; break;
+            default: break;
+        }
+    }
+    var icon = "";
+    if (item['icon']) {
+        icon = item['icon'];
+    }
+    var title = item['title'];
+    var pubDate = item['publication'];
+    var description = item['description'];
+    return vsprintf(' \
+                     <div class="timeline-badge %s"><i class="fa %s"></i>\
+                    </div>\
+                    <div class="timeline-panel">\
+                        <div class="timeline-heading">\
+                            <h4 class="timeline-title">%s</h4>\
+                            <p><small class="text-muted"><i class="fa fa-clock-o">&nbsp;&nbsp;</i>%s</small></p>\
+                        </div>\
+                        <div class="timeline-body">\
+                            %s\
+                        </div>\
+                    </div>', [ impact, icon, title, pubDate, description ]);
+}
 
 $("#download-paper-btn").click(function () {
     $("#paper-title").fadeOut();
     $("#paper-title").fadeIn();
+});
+
+
+$(document).ready(function() {
+   initDashboard();
 });
