@@ -8,6 +8,7 @@ various components of a distributed system fail.
 First, install [node.js](https://nodejs.org/en/download/). Then, to compile and view the demo, run the following commands
 in the source directory after cloning the repository:
 * `npm install`
+* `sudo npm -g install bower`
 * `bower install`
 * `gulp`
 
