@@ -192,7 +192,7 @@ function populateNodeData(selectedNode) {
     $("#paper-title").fadeIn();
 
     $("#paper-highlights").fadeOut(500, function() {
-        $("#paper-highlights").text(selectedNode["paper-highlights"]);
+        $("#paper-highlights").html(selectedNode["paper-highlights"]);
     });
     $("#paper-highlights").fadeIn();
 
@@ -213,7 +213,7 @@ function populateEdgeData(selectedEdge) {
     $("#paper-title").fadeIn();
 
     $("#paper-highlights").fadeOut(500, function() {
-        $("#paper-highlights").text(selectedEdge["edge-highlights"]);
+        $("#paper-highlights").html(selectedEdge["edge-highlights"]);
     });
     $("#paper-highlights").fadeIn();
     $("#paper-observations").fadeOut(500, function() {
