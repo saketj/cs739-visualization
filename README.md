@@ -23,6 +23,11 @@ After cloning the repo take a look at the `gulpfile.js` and check out the tasks 
 To update dependencies, run `bower update` and then run `gulp copy` to copy the updated dependencies into the `vendor` directory
 
 
+## Modifying the dashboard content
+* Edit the corresponding component `.json` file in `data/input/` folder.
+* Run the command: `node process.js data/input/<component>.json`
+* Reload the webpage and the new changes should be available. 
+
 ## Copyright and License
 
 Copyright 2016. Code released under the MIT license.

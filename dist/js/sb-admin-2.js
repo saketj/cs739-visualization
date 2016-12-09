@@ -47,7 +47,11 @@ $(function() {
 });
 
 var components = {
-    "SSD": SSD
+    "PROCESSOR": PROCESSOR,
+    "MEMORY": MEMORY,
+    "DISK": DISK,
+    "SSD": SSD,
+    "NETWORK": NETWORK
 };
 
 var component_ui_name = {
@@ -58,10 +62,19 @@ var component_ui_name = {
     "NETWORK": "Network"
 };
 
+var component_color = {
+    "PROCESSOR": "#337ab7",
+    "MEMORY": "#5cb85c",
+    "DISK": "#f0ad4e",
+    "SSD": "#d9534f",
+    "NETWORK": "mediumpurple"
+};
+
 var selected_component_id = "SSD";
 var nodes, edges, network, all_nodes, all_edges;
 
-function initDashboard() {
+function initDashboard(selected_id) {
+    selected_component_id = selected_id;
     nodes = null;
     edges = null;
     network = null;
@@ -113,7 +126,8 @@ function initDashboard() {
     var options = {
         nodes: {
             font:{
-                size:30
+                size:30,
+                color: "white"
             }
         },
         edges: {
@@ -122,25 +136,25 @@ function initDashboard() {
             selectionWidth: function (width) {return width*2;}
         },
         groups: {
-            report: {
+            PROCESSOR: {
                 shape: 'box',
-                color: '#f0ad4e' // orange
+                color: component_color[selected_component_id]
             },
-            survey: {
+            MEMORY: {
                 shape: 'box',
-                color: '#f0ad4e' // orange
+                color: component_color[selected_component_id]
             },
-            analysis: {
+            DISK: {
                 shape: 'box',
-                color: '#f0ad4e' // orange
+                color: component_color[selected_component_id]
             },
             SSD: {
                 shape: 'box',
-                color: '#f0ad4e' // orange
+                color: component_color[selected_component_id]
             },
-            idea: {
+            NETWORK: {
                 shape: 'box',
-                color: '#f0ad4e' // orange
+                color: component_color[selected_component_id]
             }
         },
         layout: {
@@ -180,9 +194,6 @@ function initDashboard() {
     });
     $("#ssd-papers-count").text(selected_component.nodes.length);
     populateNodeData(selected_component.nodes[0]);
-
-    // Initialize Timeline.
-    initTimeline(selected_component["timeline"]);
 }
 
 function populateNodeData(selectedNode) {
@@ -222,7 +233,8 @@ function populateEdgeData(selectedEdge) {
     $("#paper-observations").fadeIn();
 }
 
-function initTimeline(timeline) {
+function initTimeline(selected_component_id) {
+    var timeline = components[selected_component_id]['timeline'];
     var htmlContent = "";
     for (var i = 0; i < timeline.length; ++i) {
         var item = timeline[i];
@@ -271,7 +283,19 @@ $("#download-paper-btn").click(function () {
     $("#paper-title").fadeIn();
 });
 
+function initDramatic(selected_component_id) {
+    // Initial Dramatic Fade-out effect
+    $("#vis-network").fadeOut(500, function() {
+        initDashboard(selected_component_id);
+        $("#vis-network").fadeIn();
+    });
+    $("#research-timeline").fadeOut(500, function() {
+        initTimeline(selected_component_id);
+        $("#research-timeline").fadeIn();
+    });
+}
+
 
 $(document).ready(function() {
-   initDashboard();
+    initDramatic("SSD");
 });
