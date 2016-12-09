@@ -301,5 +301,6 @@ function initDramatic(selected_component_id) {
 
 
 $(document).ready(function() {
-    initDramatic("SSD");
+    initDashboard("SSD");
+    initTimeline("SSD");
 });
