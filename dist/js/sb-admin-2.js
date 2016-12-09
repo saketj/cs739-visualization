@@ -132,7 +132,7 @@ function initDashboard(selected_id) {
         },
         edges: {
             color: '#34495E',
-            width: 2,
+            width: 3,
             selectionWidth: function (width) {return width*2;}
         },
         groups: {
@@ -169,6 +169,10 @@ function initDashboard(selected_id) {
                 direction: 'UD',        // UD, DU, LR, RL
                 sortMethod: 'hubsize'   // hubsize, directed
             }
+        },
+        interaction: {
+            dragView: false,
+            zoomView: false
         }
     };
     network = new vis.Network(container, data, options);
