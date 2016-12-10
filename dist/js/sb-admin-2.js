@@ -3,10 +3,6 @@
  * Copyright 2013-2016 Saket Saurabh
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
  */
-$(function() {
-    $('#side-menu').metisMenu();
-});
-
 //Loads the correct sidebar on window load,
 //collapses the sidebar on window resize.
 // Sets the min-height of #page-wrapper to window size
@@ -303,4 +299,5 @@ function initDramatic(selected_component_id) {
 $(document).ready(function() {
     initDashboard("SSD");
     initTimeline("SSD");
+    $('#side-menu').metisMenu();
 });
