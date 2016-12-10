@@ -4,6 +4,7 @@
     {
       "id": 1,
       "label": "Grupp'09",
+      "importance": 20,
       "paper-title": "Grupp, L. M., Caulfield, A. M., Coburn, J., Swanson, S., Yaakobi, E., Siegel, P. H., & Wolf, J. K. (2009, December). Characterizing flash memory: anomalies, observations, and applications. In 2009 42nd Annual IEEE/ACM International Symposium on Microarchitecture (MICRO) (pp. 24-33). IEEE.",
       "download-link": "https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/Micro2009_FTest.pdf",
       "paper-highlights": "<ul> <li>Despite flash memory&rsquo;s promise, it suffers from many idiosyncrasies such as limited durability, data integrity problems, and asymmetry in operation granularity. As architects, we aim to find ways to overcome these idiosyncrasies while exploiting flash memory&rsquo;s useful characteristics.</li> <li>To be successful, we must understand the trade-offs between the performance, cost (in both power and dollars), and reliability of flash memory. In addition, we must understand how different usage patterns affect these characteristics.</li> <li>Flash manufacturers provide conservative guidelines about these metrics, and this lack of detail makes it difficult to design systems that fully exploit flash memory&rsquo;s capabilities.</li> <li>We have empirically characterized flash memory technology from five manufacturers by directly measuring the performance, power, and reliability.</li> <li>We demonstrate that performance varies significantly between vendors, devices, and from publicly available datasheets.</li> <li>We also demonstrate and quantify some unexpected device characteristics and show how we can use them to improve responsiveness and energy consumption of solid state disks by 44% and 13%, respectively, as well as increase flash device lifetime by 5.2x.</li> </ul>",
@@ -12,6 +13,7 @@
     {
       "id": 2,
       "label": "Meza'15",
+      "importance": 70,
       "paper-title": "Meza, J., Wu, Q., Kumar, S., & Mutlu, O. (2015, June). A large-scale study of flash memory failures in the field. In ACM SIGMETRICS Performance Evaluation Review (Vol. 43, No. 1, pp. 177-190). ACM.",
       "download-link": "http://pages.cs.wisc.edu/~remzi/Classes/739/Fall2016/Papers/flashfail-sigmetrics15.pdf",
       "paper-highlights": "<ul> <li>This paper presents the first large-scale study of flash-based SSD reliability in the field. We analyze data collected across a majority of flash-based solid state drives at Facebook data centers over nearly four years and many millions of operational hours in order to understand failure properties and trends of flash-based SSDs.</li> <li>Our study considers a variety of SSD characteristics, including: the amount of data written to and read from flash chips; how data is mapped within the SSD address space; the amount of data copied, erased, and discarded by the flash controller; and flash board temperature and bus power.</li> <li>Based on our field analysis of how flash memory errors manifest when running modern workloads on modern SSDs, this paper is the first to make several major observations:</li> <li>(1) SSD failure rates do not increase monotonically with flash chip wear; instead they go through several distinct periods corresponding to how failures emerge and are subsequently detected,</li> <li>(2) the effects of read disturbance errors are not prevalent in the field,</li> <li>(3) sparse logical data layout across an SSD&rsquo;s physical address space (e.g., non-contiguous data), as measured by the amount of metadata required to track logical address translations stored in an SSD-internal DRAM buffer, can greatly affect SSD failure rate,</li> <li>(4) higher temperatures lead to higher failure rates, but techniques that throttle SSD operation appear to greatly reduce the negative reliability impact of higher temperatures, and</li> <li>(5) data written by the operating system to flash-based SSDs does not always accurately indicate the amount of wear induced on flash cells due to optimizations in the SSD controller and buffering employed in the system software. We hope that the findings of this first large-scale flash memory reliability study can inspire others to develop other publicly-available analyses and novel flash reliability solutions.</li> </ul>",
@@ -20,6 +22,7 @@
     {
       "id": 3,
       "label": "Schroeder'16",
+      "importance": 70,
       "paper-title": "Schroeder, B., Lagisetty, R., & Merchant, A. (2016). Flash reliability in production: The expected and the unexpected. In 14th USENIX Conference on File and Storage Technologies (FAST 16) (pp. 67-80).",
       "download-link": "http://pages.cs.wisc.edu/~remzi/Classes/739/Fall2016/Papers/fast16-schroeder.pdf",
       "paper-highlights": "<ul> <li>This paper provides a large-scale field study covering many millions of drive days, ten different drive models, different flash technologies (MLC, eMLC, SLC) over 6 years of production use in Google&rsquo;s data centers.</li> <li>We study a wide range of reliability characteristics and come to a number of unexpected conclusions. For example, raw bit error rates (RBER) grow at a much slower rate with wear-out than the exponential rate commonly assumed and, more importantly, they are not predictive of uncorrectable errors or other error modes.</li> <li>The widely used metric UBER (uncorrectable bit error rate) is not a meaningful metric, since we see no correlation between the number of reads and the number of uncorrectable errors. We see no evidence that higher-end SLC drives are more reliable than MLC drives within typical drive lifetimes. Comparing with traditional hard disk drives, flash drives have a significantly lower replacement rate in the field, however, they have a higher rate of uncorrectable errors.</li> </ul>",
@@ -28,6 +31,7 @@
     {
       "id": 4,
       "label": "Narayanan'16",
+      "importance": 50,
       "paper-title": "Iyswarya Narayanan, Di Wang, Myeongjae Jeon, Bikash Sharma, Laura Caulfield, Anand Sivasubramaniam, Ben Cutler, Jie Liu, Badriddine Khessib, and Kushagra Vaid. 2016. SSD Failures in Datacenters: What? When? and Why?. In Proceedings of the 9th ACM International on Systems and Storage Conference (SYSTOR 16). ACM, New York, NY, USA, , Article 7 , 11 pages. DOI: http://dx.doi.org/10.1145/2928275.2928278",
       "download-link": "http://pages.cs.wisc.edu/~remzi/Classes/739/Fall2016/Papers/flashfail-sigmetrics15.pdf",
       "paper-highlights": "Narayanan highlights",
@@ -36,6 +40,7 @@
     {
       "id": 5,
       "label": "Zheng'16",
+      "importance": 30,
       "paper-title": "Zheng, M., Tucek, J., Qin, F., Lillibridge, M., Zhao, B. W., & Yang, E. S. (2016). Reliability analysis of ssds under power fault. ACM Transactions on Computer Systems (TOCS), 34(4), 10.",
       "download-link": "http://pages.cs.wisc.edu/~remzi/Classes/739/Fall2016/Papers/flashfail-sigmetrics15.pdf",
       "paper-highlights": "Zheng highlights",
@@ -44,6 +49,7 @@
     {
       "id": 6,
       "label": "Wang'16",
+      "importance": 10,
       "paper-title": "Wang, S., Cao, J., Murillo, D. V., Shi, Y., & Zheng, M. (2016, August). Emulating Realistic Flash Device Errors with High Fidelity. In Networking, Architecture and Storage (NAS), 2016 IEEE International Conference on (pp. 1-2). IEEE.",
       "download-link": "http://pages.cs.wisc.edu/~remzi/Classes/739/Fall2016/Papers/flashfail-sigmetrics15.pdf",
       "paper-highlights": "Wang highlights",

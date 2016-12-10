@@ -86,10 +86,15 @@ function initDashboard(selected_id) {
     // Create the nodes.
     for (var i = 0; i < selected_component.nodes.length; ++i) {
         var node = selected_component.nodes[i];
+        var max_font_size = 50;
+        var min_font_size = 10;
         nodes.push({
             id: node.id,
             label: node.label,
             group: selected_component.topic,
+            font: {
+                size: node["importance"] ?  min_font_size + ((max_font_size - min_font_size) * node["importance"] / 100) : min_font_size
+            },
             "paper-title": node["paper-title"],
             "paper-highlights": node["paper-highlights"],
             "paper-observations": node["paper-observations"],
@@ -122,7 +127,6 @@ function initDashboard(selected_id) {
     var options = {
         nodes: {
             font:{
-                size:30,
                 color: "white"
             }
         },
