@@ -93,7 +93,7 @@ function initDashboard(selected_id) {
             label: node.label,
             group: selected_component.topic,
             font: {
-                size: node["importance"] ?  min_font_size + ((max_font_size - min_font_size) * node["importance"] / 100) : min_font_size
+                size: node["importance"] ?  min_font_size + ((max_font_size - min_font_size) * Math.min(node["importance"],100) / 100) : min_font_size
             },
             "paper-title": node["paper-title"],
             "paper-highlights": node["paper-highlights"],
