@@ -86,8 +86,8 @@ function initDashboard(selected_id) {
     // Create the nodes.
     for (var i = 0; i < selected_component.nodes.length; ++i) {
         var node = selected_component.nodes[i];
-        var max_font_size = 50;
-        var min_font_size = 10;
+        var max_font_size = 70;
+        var min_font_size = 30;
         nodes.push({
             id: node.id,
             label: node.label,
@@ -132,8 +132,10 @@ function initDashboard(selected_id) {
         },
         edges: {
             color: '#34495E',
-            width: 3,
-            selectionWidth: function (width) {return width*2;}
+            width: 5,
+            selectionWidth: function (width) {return width*2;},
+            arrowStrikethrough: false,
+            physics: false
         },
         groups: {
             PROCESSOR: {
@@ -161,11 +163,11 @@ function initDashboard(selected_id) {
             hierarchical: {
                 enabled:true,
                 levelSeparation: 500,
-                nodeSpacing: 300,
-                treeSpacing: 500,
-                edgeMinimization: true,
+                nodeSpacing: 400,
+                treeSpacing: 300,
+                edgeMinimization: false,
                 parentCentralization: false,
-                direction: 'LR',        // UD, DU, LR, RL
+                direction: 'UD',        // UD, DU, LR, RL
                 sortMethod: 'directed'   // hubsize, directed
             }
         },
@@ -198,9 +200,9 @@ function initDashboard(selected_id) {
         all_edges.get({
             filter: function(edge) {
                 if (edge.to == selectedNode.id) {
-                    highlightedEdges.push({ id: edge.id, color: {opacity:1.0} });
+                    highlightedEdges.push({ id: edge.id, color: {opacity:1.0}, hidden: false });
                 } else {
-                    nonhighlightedEdges.push({ id: edge.id, color: {opacity:0.0} });
+                    nonhighlightedEdges.push({ id: edge.id, color: {opacity:0.0}, hidden: true });
                 }
             }
         });
@@ -216,7 +218,6 @@ function initDashboard(selected_id) {
             populateEdgeData(selectedEdge);
         }
     });
-
 
     // Initialize UI elements.
     $('.component-ui-name').each(function() {
