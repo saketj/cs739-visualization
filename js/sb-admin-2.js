@@ -88,7 +88,7 @@ function initDashboard(selected_id) {
             label: node.label,
             group: selected_component.topic,
             font: {
-                size: node["importance"] ?  min_font_size + ((max_font_size - min_font_size) * Math.min(node["importance"],100) / 100) : min_font_size
+                size: node["importance"] ?  min_font_size + ((max_font_size - min_font_size) * (Math.min(node["importance"],100)) / 100) : min_font_size
             },
             "paper-title": node["paper-title"],
             "paper-highlights": node["paper-highlights"],
@@ -116,8 +116,8 @@ function initDashboard(selected_id) {
     // create a network
     var container = document.getElementById('vis-network');
     var data = {
-        nodes: nodes,
-        edges: edges
+        nodes: all_nodes,
+        edges: all_edges
     };
     var options = {
         nodes: {
@@ -155,19 +155,30 @@ function initDashboard(selected_id) {
         layout: {
             hierarchical: {
                 enabled:true,
-                levelSeparation: 150,
+                levelSeparation: 500,
                 nodeSpacing: 300,
-                treeSpacing: 200,
-                blockShifting: false,
-                edgeMinimization: false,
-                parentCentralization: true,
-                direction: 'UD',        // UD, DU, LR, RL
-                sortMethod: 'hubsize'   // hubsize, directed
+                treeSpacing: 500,
+                edgeMinimization: true,
+                parentCentralization: false,
+                direction: 'LR',        // UD, DU, LR, RL
+                sortMethod: 'directed'   // hubsize, directed
+            }
+        },
+        physics: {
+            enabled: true,
+            barnesHut: {
+                gravitationalConstant: -2000,
+                centralGravity: 0.3,
+                springLength: 95,
+                springConstant: 0.04,
+                damping: 0.09,
+                avoidOverlap: 1
             }
         },
         interaction: {
             dragView: false,
-            zoomView: false
+            zoomView: false,
+            selectConnectedEdges: false
         }
     };
     network = new vis.Network(container, data, options);
@@ -177,6 +188,21 @@ function initDashboard(selected_id) {
         if (selectedNode) {
             populateNodeData(selectedNode);
         }
+        var nonhighlightedEdges = [];
+        var highlightedEdges = [];
+        all_edges.get({
+            filter: function(edge) {
+                if (edge.to == selectedNode.id) {
+                    highlightedEdges.push({ id: edge.id, color: {opacity:1.0} });
+                } else {
+                    nonhighlightedEdges.push({ id: edge.id, color: {opacity:0.0} });
+                }
+            }
+        });
+        all_edges.update(nonhighlightedEdges);
+        all_edges.update(highlightedEdges);
+
+
     });
 
     network.on("selectEdge", function (params) {
