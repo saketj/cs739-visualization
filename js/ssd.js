@@ -171,9 +171,16 @@ var SSD = {
 	],
 	"timeline": [
 		{
+			"title": "Grupp'12",
+			"publication": "Published in FAST 2012",
+			"description": "<a href='https://c59951.ssl.cf2.rackcdn.com/fast12/grupp.mp4' target='_blank'><img src='https://i.imgsafe.org/82429551c4.png' height='90%' width='90%'></a>",
+			"icon": "fa-battery-1",
+			"impact": "high"
+		},
+		{
 			"title": "Meza'15",
 			"publication": "Published in ACM Sigmetrics 2015",
-			"description": "This study done at Facebook was the first large-scale study of SSD failures in the field.",
+			"description": "This study done at Facebook was the first large-scale study of SSD failures in the field. <br><a href='https://research.fb.com/publications/a-large-scale-study-of-flash-memory-failures-in-the-field/' target='_blank'><img src='http://www.storagereview.com/images/StorageReview-Facebook-SSD-Failure.png' height='30%' width='50%'></a>",
 			"icon": "fa-facebook",
 			"impact": "medium"
 		},
@@ -187,7 +194,7 @@ var SSD = {
 		{
 			"title": "Narayanan'16",
 			"publication": "Published in FAST 2016",
-			"description": "This study was done at Microsoft and it builds on the previous studies done at Facebook and Google. It proposes to build machine learning models to predict SSD failures.",
+			"description": "This study was done at Microsoft and it builds on the previous studies done at Facebook and Google. It proposes to build machine learning models to predict SSD failures.<br><a href='https://news.ycombinator.com/item?id=12046524' target='_blank'><img src='https://img.yumpu.com/55708727/1/358x202/ssd-failures-in-datacenters-what-when-and-why.jpg' height='90%' width='90%'></a>",
 			"icon": "fa-windows",
 			"impact": "low"
 		}
