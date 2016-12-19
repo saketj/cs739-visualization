@@ -134,6 +134,12 @@
     },
     {
       "from": 3,
+      "to": 6,
+      "edge-highlights": "Coming soon",
+      "edge-observations": "Coming soon"
+    },
+    {
+      "from": 3,
       "to": 7,
       "edge-highlights": "Coming soon",
       "edge-observations": "Coming soon"

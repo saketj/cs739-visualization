@@ -119,7 +119,13 @@ function initDashboard(selected_id) {
         nodes: all_nodes,
         edges: all_edges
     };
+
+    var network_width = ($(window).width() * 0.5) + 'px';
+    var network_height = ($(window).height() * 0.5) + 'px';
+
     var options = {
+        width: network_width,
+        height: network_height,
         nodes: {
             font:{
                 color: "white"

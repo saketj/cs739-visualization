@@ -446,10 +446,6 @@ table.dataTable thead .sorting:after {
     border-left-width: 0;
   }
 }
-#vis-network {
-  width: 1024px;
-  height: 400px;
-}
 #muut-panel {
   height: 600px;
 }
