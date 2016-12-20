@@ -229,7 +229,14 @@ function initDashboard(selected_id) {
     $('.component-ui-name').each(function() {
        $(this).text(component_ui_name[selected_component_id]);
     });
-    $("#ssd-papers-count").text(selected_component.nodes.length);
+
+    // Populate paper count.
+    $("#processor-papers-count").text(PROCESSOR.nodes.length);
+    $("#memory-papers-count").text(MEMORY.nodes.length);
+    $("#disk-papers-count").text(DISK.nodes.length);
+    $("#ssd-papers-count").text(SSD.nodes.length);
+    $("#network-papers-count").text(NETWORK.nodes.length);
+
     populateNodeData(selected_component.nodes[0]);
 }
 
