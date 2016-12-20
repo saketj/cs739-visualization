@@ -151,12 +151,12 @@ var DISK = {
 		{
 			"title": "Bianca '07: Bathtub model is dead",
 			"publication": "Published in FAST 2007",
-			"description": "<a href='https://research.fb.com/publications/a-large-scale-study-of-flash-memory-failures-in-the-field/' target='_blank'><img src='hthttps://www.usenix.org/legacy/events/fast07/tech/schroeder/schroeder_html/img14a.PNG' height='30%' width='80%'></a>",
+			"description": "<a href='https://research.fb.com/publications/a-large-scale-study-of-flash-memory-failures-in-the-field/' target='_blank'><img src='https://www.usenix.org/legacy/events/fast07/tech/schroeder/schroeder_html/img14a.PNG' height='30%' width='80%'></a>",
 			"icon": "fa-windows",
 			"impact": "low"
 		},
 		{
-			"title": "Pinheiro '07: It's ok to be young and hot ",
+			"title": "Pinheiro '07: No correlation between temperature and failures",
 			"publication": "Published in FAST 2007",
 			"description": ". <a href='https://research.fb.com/publications/a-large-scale-study-of-flash-memory-failures-in-the-field/' target='_blank'><img src='http://storagemojo.com/wp-content/uploads/2007/02/afr_temp.png' height='30%' width='50%'></a>",
 			"icon": "fa-windows",
