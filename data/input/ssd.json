@@ -43,8 +43,8 @@
       "importance": 80,
       "paper-title": "Schroeder B, Lagisetty R, Merchant A. Flash reliability in production: The expected and the unexpected. In14th USENIX Conference on File and Storage Technologies (FAST 16) 2016 (pp. 67-80).",
       "download-link": "http://pages.cs.wisc.edu/~remzi/Classes/739/Fall2016/Papers/fast16-schroeder.pdf",
-      "paper-highlights": "Coming Soon",
-      "paper-observations": "Coming Soon"
+      "paper-highlights": "<p>This paper provides a large-scale field study covering many millions of drive days, ten different drive models, different flash technologies (MLC, eMLC, SLC) over 6 years of production use in Google&rsquo;s data centers. Some of these support common assumptions and expectations, while many were unexpected. This paper draws the following conclusions:</p> <ul> <li>Between 20&ndash;63% of drives experience at least one uncorrectable error during their first four years in the field, making uncorrectable errors the most common non-transparent error in these drives. Between 2&ndash;6 out of 1,000 drive days are affected by them.</li> <li>The majority of drive days experience at least one correctable error, however other types of transparent errors, i.e. errors which the drive can mask from the user, are rare compared to non-transparent errors.</li> <li>The RBER (raw bit error rate), the standard metric for drive reliability, is not a good predictor of those failure modes that are the major concern in practice. In particular, higher RBER does not translate to a higher incidence of uncorrectable errors.</li> <li>The UBER (uncorrectable bit error rate), the standard metric to measure uncorrectable errors, is not very meaningful. There is&nbsp;no correlation between UEs and number of reads, so normalizing uncorrectable errors by the number of bits read will artificially inflate the reported error rate for drives with low read count.</li> <li>Both RBER and the number of uncorrectable errors grow with PE cycles, however the rate of growth is slower than commonly expected, following a linear rather than exponential rate, and there are no sudden spikes once a drive exceeds the vendor&rsquo;s PE cycle limit, within the PE cycle ranges we observe in the field.</li> <li>SLC drives, which are targeted at the enterprise market and considered to be higher end, are not more reliable than the lower end MLC drives.</li> <li>It is observed that chips with smaller feature size tend&nbsp;to experience higher RBER, but are not necessarily the ones with the highest incidence of non-transparent errors, such as uncorrectable errors.</li> <li>While flash drives offer lower field replacement rates than hard disk drives, they have a significantly higher rate of problems that can impact the user, such as uncorrectable errors.</li> <li>Previous errors of various types are predictive of later uncorrectable errors.</li> <li>Bad blocks and bad chips occur at a signicant rate: depending on the model, 30-80% of drives develop at least one bad block and and 2-7% develop at least one bad chip during the first four years in the field.</li> <li>Drives tend to either have less than a handful of bad blocks, or a large number of them, suggesting that impending chip failure could be predicted based on prior number of bad blocks (and maybe other factors). Also, a drive with a large number of factory bad blocks has a higher chance of developing more bad blocks in the field, as well as certain types of errors.</li> </ul>",
+      "paper-observations": "This research has been well-received because it studies SSD drive failures at a much large scale."
     },
     {
       "id": 6,
@@ -52,8 +52,8 @@
       "importance": 30,
       "paper-title": "Iyswarya Narayanan, Di Wang, Myeongjae Jeon, Bikash Sharma, Laura Caulfield, Anand Sivasubramaniam, Ben Cutler, Jie Liu, Badriddine Khessib, and Kushagra Vaid. 2016. SSD Failures in Datacenters: What? When? and Why?. In Proceedings of the 9th ACM International on Systems and Storage Conference (SYSTOR '16). ACM, New York, NY, USA",
       "download-link": "http://pages.cs.wisc.edu/~remzi/Classes/739/Fall2016/Papers/a7-narayanan.pdf",
-      "paper-highlights": "Coming Soon",
-      "paper-observations": "Coming Soon"
+      "paper-highlights": "<p>This paper presents an extensive SSD failure characterization by analyzing a wide spectrum of data from over half a million SSDs that span multiple generations spread across several datacenters which host a wide spectrum of workloads over nearly 3 years.&nbsp;By studying the diverse set of design, provisioning and operational factors on failures, and their symptoms, this&nbsp;work tries to answer the&nbsp;what, when and why characteristics of SSD failures in production datacenters. This paper makes the following observations:</p> <ul> <li>The observed Annualized Failure Rate (AFR) in these production datacenters for some models is significantly higher (as much as 70%) than that quoted in SSD specifications, reiterating the need for this kind of field study.</li> <li>Four symptoms - Data Errors (Uncorrectable and CRC), Sector Reallocations, Program/Erase Failures and SATA Downshift - experienced by SSDs at the lower levels are the most important (in that order) of those captured by the SMART attributes.</li> <li>There is a higher likelihood of the symptoms (captured by SMART) preceding SSD failures, with an intense manifestation preventing their survivability beyond a few months.</li> <li>It is&nbsp;shown that SSD failure&nbsp;symptoms are not a sufficient indicator for diagnosing failures.</li> <li>The provisioning (what model? where deployed? etc.) and operational parameters (write rates, write amplification, etc.) all show some correlation with SSD failures. This motivates the need for not just a relative ordering of their influence (to be useful to a datacenter operator), but also a systematic multi-factor analysis of them all to better answer the what, when and why of SSD failures.</li> <li>The authors use machine learning models and graphical causal models to jointly evaluate the impact of all relevant factors on failures.</li> </ul>",
+      "paper-observations": "<p>Previous works have mostly focused on a single parameter analysis of SSD failures for a fleet comprising mainly of devices with equivalent read/write rates. This work in interesting because it&nbsp;investigates a wide set of failures that impact SSD/server downtimes, and studied the impact of a diverse set of design, provisioning and operational parameters on the failures (and their symptoms), with an effort to come up with the answer to What? Why? and When? SSDs fail.</p>"
     },
     {
       "id": 7,
@@ -61,8 +61,8 @@
       "importance": 10,
       "paper-title": "Zheng M, Tucek J, Qin F, Lillibridge M, Zhao BW, Yang ES. Reliability analysis of SSDs under power fault. ACM Transactions on Computer Systems (TOCS). 2016 Nov 1;34(4):10.",
       "download-link": "http://dl.acm.org/citation.cfm?id=2992782",
-      "paper-highlights": "Coming Soon",
-      "paper-observations": "Coming Soon"
+      "paper-highlights": "<p>This research considers the behavior of flash-based SSDs under power fault. Specifically, it&nbsp;considers how commercially available SSDs behave when power is cut unexpectedly during operation.</p>",
+      "paper-observations": "<p>Although loss of power seems like an easy fault to prevent, recent published studies show that a simple loss of power is still a distressingly frequent occurrence even for sophisticated datacenter operators like Amazon. If even well-prepared and experienced datacenter operators cannot ensure continuous power, then it becomes critical that we understand how non-volatile components like SSDs behave when they lose power.</p>"
     }
   ],
   "edges": [
@@ -81,20 +81,14 @@
     {
       "from": 1,
       "to": 5,
-      "edge-highlights": "Coming soon",
-      "edge-observations": "Coming soon"
-    },
-    {
-      "from": 1,
-      "to": 6,
-      "edge-highlights": "Coming soon",
-      "edge-observations": "Coming soon"
+      "edge-highlights": "Grupp et al. report RBER rates for drives that are close to reaching their PE cycle limit. For SLC and MLC devices with feature sizes similar to the ones in Schroeder.et.al's work (25-50nm), the RBER reported by Grupp et.al. ranges from 1e-08 to 1e-03, with most drive models experiencing RBER close to 1e-06. The three drive models in Schroeder.et.al's study that reach their PE cycle limit experienced RBER between 3e-08 to 8e-08. Even taking into account that these numbers are lower bounds and in the absolute worst case could be 16X higher, or looking at the 95th percentile of RBER, these newly reported rates are significantly lower.",
+      "edge-observations": "In summary, while the field RBER rates are higher than in-house projections based on accelerated life tests, they are lower than most RBER reported in other work for comparable devices based on lab tests. This suggests that predicting field RBER in accelerated life tests is not straight-forward."
     },
     {
       "from": 1,
       "to": 7,
-      "edge-highlights": "Coming soon",
-      "edge-observations": "Coming soon"
+      "edge-highlights": "<p>Much work has been done on analyzing the reliability of raw flash memory chips [Grupp et. al. and Cai et. al.] and understanding the device-level reliability of SSDs [Meza et. al., Schroeder et.al. and Narayanan et. al.] However, this is the first of its kind work that undertakes to understand the device-level behavior of SSDs under power faults.&nbsp;</p>",
+      "edge-observations": "This claim seems well-supported."
     },
     {
       "from": 2,
@@ -105,20 +99,14 @@
     {
       "from": 2,
       "to": 5,
-      "edge-highlights": "Coming soon",
-      "edge-observations": "Coming soon"
-    },
-    {
-      "from": 2,
-      "to": 6,
-      "edge-highlights": "Coming soon",
-      "edge-observations": "Coming soon"
+      "edge-highlights": "Grupp et al. report RBER rates for drives that are close to reaching their PE cycle limit. For SLC and MLC devices with feature sizes similar to the ones in Schroeder.et.al's work (25-50nm), the RBER reported by Grupp et.al. ranges from 1e-08 to 1e-03, with most drive models experiencing RBER close to 1e-06. The three drive models in Schroeder.et.al's study that reach their PE cycle limit experienced RBER between 3e-08 to 8e-08. Even taking into account that these numbers are lower bounds and in the absolute worst case could be 16X higher, or looking at the 95th percentile of RBER, these newly reported rates are significantly lower.",
+      "edge-observations": "In summary, while the field RBER rates are higher than in-house projections based on accelerated life tests, they are lower than most RBER reported in other work for comparable devices based on lab tests. This suggests that predicting field RBER in accelerated life tests is not straight-forward."
     },
     {
       "from": 2,
       "to": 7,
-      "edge-highlights": "Coming soon",
-      "edge-observations": "Coming soon"
+      "edge-highlights": "<p>Much work has been done on analyzing the reliability of raw flash memory chips [Grupp et. al. and Cai et. al.] and understanding the device-level reliability of SSDs [Meza et. al., Schroeder et.al. and Narayanan et. al.] However, this is the first of its kind work that undertakes to understand the device-level behavior of SSDs under power faults.&nbsp;</p>",
+      "edge-observations": "This claim seems well-supported."
     },
     {
       "from": 3,
@@ -129,44 +117,38 @@
     {
       "from": 3,
       "to": 5,
-      "edge-highlights": "Coming soon",
-      "edge-observations": "Coming soon"
-    },
-    {
-      "from": 3,
-      "to": 6,
-      "edge-highlights": "Coming soon",
-      "edge-observations": "Coming soon"
+      "edge-highlights": "<p>Cai et. al. identify error patterns in SSD under controlled lab experiments, whereas Schroeder et. al. are interested in behaviour of flash drives in the field, and note that their observations sometimes differ from those previously published studies. For example, they&nbsp;find that RBER is not a good indicator for the likelihood of uncorrectable errors and that RBER grows linearly rather than exponentially with PE cycles.</p>",
+      "edge-observations": "This claim seems well-supported."
     },
     {
       "from": 3,
       "to": 7,
-      "edge-highlights": "Coming soon",
-      "edge-observations": "Coming soon"
+      "edge-highlights": "<p>Much work has been done on analyzing the reliability of raw flash memory chips [Grupp et. al. and Cai et. al.] and understanding the device-level reliability of SSDs [Meza et. al., Schroeder et.al. and Narayanan et. al.] However, this is the first of its kind work that undertakes to understand the device-level behavior of SSDs under power faults.&nbsp;</p>",
+      "edge-observations": "This claim seems well-supported."
     },
     {
       "from": 4,
       "to": 5,
-      "edge-highlights": "Coming soon",
-      "edge-observations": "Coming soon"
+      "edge-highlights": "<p>Schroeder et. al. study and Meza et. al. study complement each other.</p> <ul> <li>The data in the Facebook study consists of a single snapshot in time for a fleet consisting of very young (in terms of the usage they have seen in comparison to their PE cycle limit) MLC drives and has information on uncorrectable errors only, while the Google&nbsp;study is based on per-drive time series data spanning drives&rsquo; entire lifecycle and includes detailed information on different types of errors, including correctable errors, and different types of hardware failures, as well as drives from different technologies (MLC, eMLC, SLC).</li> <li>The Facebook paper presents rates of uncorrectable errors and studies them as a function of usage. They observe significant infant mortality (which they refer to as early detection and early failure), while Schroeder et.al. don't. Besides differences in burn-in testing at the two companies, which might affect infant mortality, the differences might also be due to the fact that the Facebook study presents more of a close-up view of a drive&rsquo;s early life (with no datapoints past a couple of hundred PE cycles for drives whose PE cycle limits are in the tens of thousands) while our view is more macroscopic spanning the entire lifecycle of a drive.</li> <li>The Facebook study concludes that read disturb errors are not a significant factor in the field. Schroeder et. al.'s&nbsp;view of read disturb errors is more differentiated, showing that while read disturb does not create uncorrectable errors, read disturb errors happen at a rate that is significant enough to affect RBER in the field.&nbsp;</li> </ul>",
+      "edge-observations": "The Google study spans a broader range of error and failure modes, including wear-out effects across a drive’s entire life. On the other hand, the Facebook study includes the role of some factors (temperature, bus power consumption, DRAM buffer usage) that our data does not account for."
     },
     {
       "from": 4,
       "to": 6,
-      "edge-highlights": "Coming soon",
-      "edge-observations": "Coming soon"
+      "edge-highlights": "<p>Narayanan et. al. claim that previous works (i) have only examined a single kind of SSD hardware failure (bit error rates) and not all possible SSD failures that could take the server down; and (ii) have analyzed correlating factors independently, which makes it difficult to understand the what, when and why answers that could depend on several workload and datacenter spatio-temporal factors.</p>",
+      "edge-observations": "The fact that whether there is a correlation with spatio-temporal characteristics of the datacenter, needs further investigation."
     },
     {
       "from": 5,
       "to": 6,
-      "edge-highlights": "Coming soon",
-      "edge-observations": "Coming soon"
+      "edge-highlights": "<p>Narayanan et. al. claim that previous works (i) have only examined a single kind of SSD hardware failure (bit error rates) and not all possible SSD failures that could take the server down; and (ii) have analyzed correlating factors independently, which makes it difficult to understand the what, when and why answers that could depend on several workload and datacenter spatio-temporal factors.</p>",
+      "edge-observations": "The fact that whether there is a correlation with spatio-temporal characteristics of the datacenter, needs further investigation."
     },
     {
       "from": 5,
       "to": 7,
-      "edge-highlights": "Coming soon",
-      "edge-observations": "Coming soon"
+      "edge-highlights": "<p>Much work has been done on analyzing the reliability of raw flash memory chips [Grupp et. al. and Cai et. al.] and understanding the device-level reliability of SSDs [Meza et. al., Schroeder et.al. and Narayanan et. al.] However, this is the first of its kind work that undertakes to understand the device-level behavior of SSDs under power faults.&nbsp;</p>",
+      "edge-observations": "This claim seems well-supported."
     }
   ],
   "timeline": [
