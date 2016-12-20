@@ -8,118 +8,144 @@ var NETWORK = {
 	"nodes": [
 		{
 			"id": 1,
-			"label": "Grupp'09",
-			"importance": 20,
-			"paper-title": "Grupp, L. M., Caulfield, A. M., Coburn, J., Swanson, S., Yaakobi, E., Siegel, P. H., & Wolf, J. K. (2009, December). Characterizing flash memory: anomalies, observations, and applications. In 2009 42nd Annual IEEE/ACM International Symposium on Microarchitecture (MICRO) (pp. 24-33). IEEE.",
-			"download-link": "https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/Micro2009_FTest.pdf",
-			"paper-highlights": "<ul> <li>Despite flash memory&rsquo;s promise, it suffers from many idiosyncrasies such as limited durability, data integrity problems, and asymmetry in operation granularity. As architects, we aim to find ways to overcome these idiosyncrasies while exploiting flash memory&rsquo;s useful characteristics.</li> <li>To be successful, we must understand the trade-offs between the performance, cost (in both power and dollars), and reliability of flash memory. In addition, we must understand how different usage patterns affect these characteristics.</li> <li>Flash manufacturers provide conservative guidelines about these metrics, and this lack of detail makes it difficult to design systems that fully exploit flash memory&rsquo;s capabilities.</li> <li>We have empirically characterized flash memory technology from five manufacturers by directly measuring the performance, power, and reliability.</li> <li>We demonstrate that performance varies significantly between vendors, devices, and from publicly available datasheets.</li> <li>We also demonstrate and quantify some unexpected device characteristics and show how we can use them to improve responsiveness and energy consumption of solid state disks by 44% and 13%, respectively, as well as increase flash device lifetime by 5.2x.</li> </ul>",
-			"paper-observations": "<ul> <li>The devices we characterized in this study exhibited variation both within a block and over time in terms of power consumption, latency, and error rates.</li> <li>Our data also show that the values manufacturers provide in publicly available datasheets often tell only part of the story, and that actual performance can be significantly worse and highly variable.</li> <li>Our application case studies demonstrate that by looking beyond the datasheets manufacturers provide, we can make significant improvements to flash-based storage devices.</li> <li>Exploiting two of the effects we measured enabled us to significantly decrease latency for critical IO requests and extend the effective lifetimes of chips.</li> </ul>"
+			"label": "Gill'11",
+			"importance": 70,
+			"paper-title": "Gill, P., Jain, N., & Nagappan, N. (2011, August). Understanding network failures in data centers: measurement, analysis, and implications. In ACM SIGCOMM Computer Communication Review (Vol. 41, No. 4, pp. 350-361). ACM.",
+			"download-link": "http://research.microsoft.com/en-us/um/people/navendu/papers/sigcomm11netwiser.pdf",
+			"paper-highlights": "<ul><li>The first large-scale analysis of failures in a data center network</li><li>Authors seek to answer several fundamental questions: which devices/links are most unreliable, what causes failures, how do failures impact network traffic and how effective is network redundancy?</li><li>The key findings of our study are that:&nbsp;<ul><li>data center networks show high reliability</li><li>commodity switches such as ToRs and AggS are highly reliable</li><li>load balancers dominate in terms of failure occurrences with many short-lived software related faults</li><li>failures have potential to cause loss of many small packets such as keep alive messages and ACKs</li><li>network redundancy is only 40% effective in reducing the median impact of failure</li></ul></li><li>On an average, 5.2 devices and 40.8 links fail per day&nbsp;</li><li>Root cause of failures: Connectivity errors and software problems</li></ul>",
+			"paper-observations": "<ul><li>Use commodity switches as they have high reliability</li><li>Improve reliability of middle boxes&nbsp;</li><li>Separate control plane from data plane</li><li>Improve the effectiveness of network redundancy</li></ul>"
 		},
 		{
 			"id": 2,
-			"label": "Meza'15",
-			"importance": 70,
-			"paper-title": "Meza, J., Wu, Q., Kumar, S., & Mutlu, O. (2015, June). A large-scale study of flash memory failures in the field. In ACM SIGMETRICS Performance Evaluation Review (Vol. 43, No. 1, pp. 177-190). ACM.",
-			"download-link": "http://pages.cs.wisc.edu/~remzi/Classes/739/Fall2016/Papers/flashfail-sigmetrics15.pdf",
-			"paper-highlights": "<ul> <li>This paper presents the first large-scale study of flash-based SSD reliability in the field. We analyze data collected across a majority of flash-based solid state drives at Facebook data centers over nearly four years and many millions of operational hours in order to understand failure properties and trends of flash-based SSDs.</li> <li>Our study considers a variety of SSD characteristics, including: the amount of data written to and read from flash chips; how data is mapped within the SSD address space; the amount of data copied, erased, and discarded by the flash controller; and flash board temperature and bus power.</li> <li>Based on our field analysis of how flash memory errors manifest when running modern workloads on modern SSDs, this paper is the first to make several major observations:</li> <li>(1) SSD failure rates do not increase monotonically with flash chip wear; instead they go through several distinct periods corresponding to how failures emerge and are subsequently detected,</li> <li>(2) the effects of read disturbance errors are not prevalent in the field,</li> <li>(3) sparse logical data layout across an SSD&rsquo;s physical address space (e.g., non-contiguous data), as measured by the amount of metadata required to track logical address translations stored in an SSD-internal DRAM buffer, can greatly affect SSD failure rate,</li> <li>(4) higher temperatures lead to higher failure rates, but techniques that throttle SSD operation appear to greatly reduce the negative reliability impact of higher temperatures, and</li> <li>(5) data written by the operating system to flash-based SSDs does not always accurately indicate the amount of wear induced on flash cells due to optimizations in the SSD controller and buffering employed in the system software. We hope that the findings of this first large-scale flash memory reliability study can inspire others to develop other publicly-available analyses and novel flash reliability solutions.</li> </ul>",
-			"paper-observations": "<ul> <li><strong>Observation 1:</strong> We observe that SSDs go through several distinct failure periods &ndash; early detection, early failure, usable life, and wearout &ndash; during their lifecycle, corresponding to the amount of data written to flash chips.</li> <li><strong>Observation 2:</strong> We find that the effect of read disturbance errors is not a predominant source of errors in the SSDs we examine.</li> <li><strong>Observation 3:</strong> Sparse data layout across an SSD&rsquo;s physical address space (e.g., non-contiguously allocated data) leads to high SSD failure rates; dense data layout (e.g., contiguous data) can also negatively impact reliability under certain conditions, likely due to adversarial access patterns.</li> <li><strong>Observation 4:</strong> Higher temperatures lead to increased failure rates, but do so most noticeably for SSDs that do not employ throttling techniques.&nbsp;</li> <li><strong>Observation 5:</strong> The amount of data reported to be written by the system software can overstate the amount of data actually written to flash chips, due to system-level buffering and wear reduction techniques.</li> </ul>"
+			"label": "Potharaju'13",
+			"importance": 60,
+			"paper-title": "Potharaju, R., & Jain, N. (2013, October). Demystifying the dark side of the middle: a field study of middlebox failures in datacenters. In Proceedings of the 2013 conference on Internet measurement conference (pp. 9-22). ACM",
+			"download-link": "http://dl.acm.org/citation.cfm?id=2504737",
+			"paper-highlights": "<ul><li>Network appliances or middleboxes such as ﬁrewalls, intrusion detection and prevention systems (IDPS), load balancers, and VPNs form an integral part of datacenters and enterprise networks</li><li>One of the ﬁrst attempts to perform a large-scale empirical study of middlebox failures over two years in a service provider network comprising thousands of middleboxes across tens of datacenters</li><li>Key finidings:&nbsp;<ul><li>&nbsp;Most failures are grey dominated by connectivity errors and link ﬂaps that exhibit intermittent connectivity</li><li>&nbsp;Hardware faults and overload problems are present but they are not in majority</li><li>Middleboxes experience a variety of misconﬁgurations such as incorrect rules, VLAN misallocation and mismatched keys</li><li>&nbsp;Middlebox failover is ineﬀective in about 33% of the cases for load balancers and ﬁrewalls due to conﬁguration bugs, faulty failovers and software version mismatch</li></ul></li><li>Middlebox failures contribute to 43% high severity incidents, Lost connectivity is the most common impact</li></ul>",
+			"paper-observations": "<ul><li>Commoditize middleboxes</li><li>Middlebox veriﬁcation</li><li>Detect early faulty product-line</li><li>Feasibility of making middlebox processing as a cloud service</li><li>Make the cost-metric of middlebox hardware reliability aware</li></ul>"
 		},
 		{
 			"id": 3,
-			"label": "Schroeder'16",
-			"importance": 70,
-			"paper-title": "Schroeder, B., Lagisetty, R., & Merchant, A. (2016). Flash reliability in production: The expected and the unexpected. In 14th USENIX Conference on File and Storage Technologies (FAST 16) (pp. 67-80).",
-			"download-link": "http://pages.cs.wisc.edu/~remzi/Classes/739/Fall2016/Papers/fast16-schroeder.pdf",
-			"paper-highlights": "<ul> <li>This paper provides a large-scale field study covering many millions of drive days, ten different drive models, different flash technologies (MLC, eMLC, SLC) over 6 years of production use in Google&rsquo;s data centers.</li> <li>We study a wide range of reliability characteristics and come to a number of unexpected conclusions. For example, raw bit error rates (RBER) grow at a much slower rate with wear-out than the exponential rate commonly assumed and, more importantly, they are not predictive of uncorrectable errors or other error modes.</li> <li>The widely used metric UBER (uncorrectable bit error rate) is not a meaningful metric, since we see no correlation between the number of reads and the number of uncorrectable errors. We see no evidence that higher-end SLC drives are more reliable than MLC drives within typical drive lifetimes. Comparing with traditional hard disk drives, flash drives have a significantly lower replacement rate in the field, however, they have a higher rate of uncorrectable errors.</li> </ul>",
-			"paper-observations": "<ul> <li>Between 20&ndash;63% of drives experience at least one uncorrectable error during their first four years in the field, making uncorrectable errors the most common non-transparent error in these drives. Between 2&ndash;6 out of 1,000 drive days are affected by them.</li> <li>The majority of drive days experience at least one correctable error, however other types of transparent errors, i.e. errors which the drive can mask from the user, are rare compared to non-transparent errors.</li> <li>We find that RBER (raw bit error rate), the standard metric for drive reliability, is not a good predictor of those failure modes that are the major concern in practice. In particular, higher RBER does not translate to a higher incidence of uncorrectable errors.</li> <li>We find that UBER (uncorrectable bit error rate), the standard metric to measure uncorrectable errors, is not very meaningful. We see no correlation between UEs and number of reads, so normalizing uncorrectable errors by the number of bits read will artificially inflate the reported error rate for drives with low read count.</li> <li>Both RBER and the number of uncorrectable errors grow with PE cycles, however the rate of growth is slower than commonly expected, following a linear rather than exponential rate, and there are no sudden spikes once a drive exceeds the vendor&rsquo;s PE cycle limit, within the PE cycle ranges we observe in the field.</li> </ul>"
+			"label": "Potharaju'13",
+			"importance": 50,
+			"paper-title": "Potharaju, R., & Jain, N. (2013, October). When the network crumbles: An empirical study of cloud network failures and their impact on services. In Proceedings of the 4th annual Symposium on Cloud Computing (p. 15). ACM",
+			"download-link": "http://dl.acm.org/citation.cfm?id=2523638",
+			"paper-highlights": "<ul><li>&nbsp;A major factor affecting service availability is reliability of the network, both inside the datacenters and wide-area links connecting them</li><li>This paper makes one of the ﬁrst attempts to characterize intra-datacenter and inter-datacenter network failures from a service perspective</li><li>Some key findings:&nbsp;<ul><li>The median number of bytes lost during failures is about 130 GB/day for ARs and 38 GB/day for AGGs while it is about 1 GB/day for ToRs.&nbsp;</li><li>&nbsp;Link ﬂapping and interface errors dominate problem root causes across all device types. (2) Other dominant causes are hardware failures, unexpected reboots and misconﬁgurations.&nbsp;</li><li>Repairs were relatively more effective for ARs and AGGs</li><li>Device failures are not memoryless i.e., they are not independent</li><li>&nbsp;All device types exhibit some amount of &ldquo;burstiness&rdquo; in their failure patterns with ToRs showing the least. After one failure, probability of subsequent failures is higher in the near time window.&nbsp;</li><li>: Fiber length has no statistically signiﬁcant correlation with the number of failures observed</li><li>Layer-2 switches exhibit high availability when about half of their port capacity is utilized (in terms of ToR count). However, the availability signiﬁcantly decreases as the ToR count gets close to the full switch capacity.</li></ul></li></ul>",
+			"paper-observations": ""
 		},
 		{
 			"id": 4,
-			"label": "Narayanan'16",
-			"importance": 50,
-			"paper-title": "Iyswarya Narayanan, Di Wang, Myeongjae Jeon, Bikash Sharma, Laura Caulfield, Anand Sivasubramaniam, Ben Cutler, Jie Liu, Badriddine Khessib, and Kushagra Vaid. 2016. SSD Failures in Datacenters: What? When? and Why?. In Proceedings of the 9th ACM International on Systems and Storage Conference (SYSTOR 16). ACM, New York, NY, USA, , Article 7 , 11 pages. DOI: http://dx.doi.org/10.1145/2928275.2928278",
-			"download-link": "http://pages.cs.wisc.edu/~remzi/Classes/739/Fall2016/Papers/flashfail-sigmetrics15.pdf",
-			"paper-highlights": "Narayanan highlights",
-			"paper-observations": "Narayanan observations"
+			"label": "Bailis'14",
+			"importance": 70,
+			"paper-title": "Bailis, P., & Kingsbury, K. (2014). The network is reliable. Queue, 12(7), 20",
+			"download-link": "http://dl.acm.org/citation.cfm?id=2655736",
+			"paper-highlights": "<ul><li>Talks about the evolving debate of network reliability&nbsp;</li><li>Covers the major studies of network failures -- Microsoft and HP networks&nbsp;</li><li>Points out the google cluster's first year details and how network availability is a cause of concern&nbsp;</li><li>Talks about the decisions taken in Amazon Dynamo and Yahoo PNUTS to improve network reliability</li><li>Gives various case studies of network outages which have made it to press over the last decade&nbsp;</li><li>Concludes that cautious engineering is very important to prevent outages</li></ul>",
+			"paper-observations": "<ul><li>DNS-redirection based network load balancing</li><li>Link Bundling and Wavelength Provisionin</li><li>Techniques to improve network redundancy</li><li>Repair vs. replace has been discussed</li></ul>"
 		},
 		{
 			"id": 5,
-			"label": "Zheng'16",
-			"importance": 30,
-			"paper-title": "Zheng, M., Tucek, J., Qin, F., Lillibridge, M., Zhao, B. W., & Yang, E. S. (2016). Reliability analysis of ssds under power fault. ACM Transactions on Computer Systems (TOCS), 34(4), 10.",
-			"download-link": "http://pages.cs.wisc.edu/~remzi/Classes/739/Fall2016/Papers/flashfail-sigmetrics15.pdf",
-			"paper-highlights": "Zheng highlights",
-			"paper-observations": "Zheng observations"
+			"label": "Turner'12",
+			"importance": 70,
+			"paper-title": "Turner, D., Levchenko, K., Mogul, J. C., Savage, S., & Snoeren, A. C. (2012). On failure in managed enterprise networks. HP Labs HPL-2012-101.",
+			"download-link": "http://www.hpl.hp.com/techreports/2012/HPL-2012-101.pdf",
+			"paper-highlights": "<ul><li>The authors have analyzed almost a year&rsquo;s worth of failure data for thousands of enterprise networks. The data includes device logs, network probes, call center tickets, and incident report</li><li>Main Contributions:&nbsp;<ul><li>low-level data sources alone are unlikely to provide a comprehensive characterization of failure as experienced by users or network managers</li><li>the principal source of high-severity unresolved problem minutes are connectivity failures that result from thirdparty ISP issues</li><li>unlike high-severity problems, they cover a far more diverse set of issues, yet the ESP can usually fix these problems without assistance from other vendors or providers</li><li>various kinds of connectivity problems typically generate customer calls. However, call volumes are not heavily concentrated in any particular category, suggesting that ESPs have sufficient monitoring capability to discover most classes of problems without customer-generated reports</li><li>With the exception of high-severity problems, that the breakdowns by problem type, source of problem, and resolution can vary tremendously between customers</li></ul></li></ul>",
+			"paper-observations": ""
 		},
 		{
 			"id": 6,
-			"label": "Wang'16",
-			"importance": 10,
-			"paper-title": "Wang, S., Cao, J., Murillo, D. V., Shi, Y., & Zheng, M. (2016, August). Emulating Realistic Flash Device Errors with High Fidelity. In Networking, Architecture and Storage (NAS), 2016 IEEE International Conference on (pp. 1-2). IEEE.",
-			"download-link": "http://pages.cs.wisc.edu/~remzi/Classes/739/Fall2016/Papers/flashfail-sigmetrics15.pdf",
-			"paper-highlights": "Wang highlights",
-			"paper-observations": "Wang observations"
+			"label": "Padmanabhan'06",
+			"importance": 20,
+			"paper-title": "Padmanabhan, V. N., Ramabhadran, S., Agarwal, S., & Padhye, J. (2006, December). A study of end-to-end web access failures. In Proceedings of the 2006 ACM CoNEXT conference (p. 15). ACM.",
+			"download-link": "https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/conext2006.pdf",
+			"paper-highlights": "<ul><li>A study of end-to-end web access failures in the Internet</li><li>Study is based on failure observations during a monthlong experiment involving 134 client hosts</li><li>The median failure rate of web accesses is about 1.5%</li><li>About 34-42% of the web access failures are due to DNS problems, primarily due to the inability of the client to connect to its local DNS server</li><li>The majority of the remaining failures are due to TCP connection establishment failures</li><li>By correlating failure observations across clients and servers, we find that server-side problems are the dominant cause of TCP connection failures</li></ul>",
+			"paper-observations": ""
 		}
 	],
 	"edges": [
 		{
 			"from": 1,
 			"to": 2,
-			"edge-highlights": "<ul> <li>Recent work by Grupp et al. examined the BER of raw MLC flash chips (without performing error correction in the flash controller) in a controlled environment.</li> <li>They found the raw BER to vary from 1 &times; 10&minus;1 for the least reliable flash chips down to 1 &times; 10&minus;8 for the most reliable, with most chips having a BER in the 1 &times; 10&minus;6 to 1 &times; 10&minus;8 range.</li> <li><em><strong>Their study did not analyze the effects of the use of chips in SSDs under real workloads and system software.</strong></em></li> </ul>",
-			"edge-observations": "<ul><li>This claims seem well supported.</li></ul>"
+			"edge-highlights": "<ul><li>This was an incremental study from MSR. The first paper talked about failures in data center networks and identified that it is important to improve middlebox reliabilty. The second paper talked about the middlebox failures alone and suggests ways to build a robust network from the lessons derived from both the studies.</li></ul>"
 		},
 		{
 			"from": 1,
 			"to": 3,
-			"edge-highlights": "none-1-3",
-			"edge-observations": "coming soon"
+			"edge-highlights": "<ul><li>This was an incremental study from MSR. The first paper talked about failures in data center networks and identified that it is important to study their impact on services hosted. The second paper talked about the inter and intra data center network failures and how they affect the services.</li></ul>",
+			"edge-observations": ""
+		},
+		{
+			"from": 1,
+			"to": 4,
+			"edge-highlights": "<ul><li>Second paper is an informal survey of network failures from various literature and case studies. This cites the first paper, which is a work from MSR</li></ul>",
+			"edge-observations": ""
 		},
 		{
 			"from": 2,
 			"to": 3,
-			"edge-highlights": "<div class = 'row'> <div class='col-md-12'><ul> <li>Schroder's study and Meza's study complement each other well, as they have very little overlap.</li> <li>The data in the Facebook study consists of a single snapshot in time for a fleet consisting of very young (in terms of the usage they have seen in comparison to their PE cycle limit) MLC drives and has information on uncorrectable errors only, while Schroder's&nbsp;study is based on per-drive time series data spanning drives&rsquo; entire lifecycle and includes detailed information on different types of errors, including correctable errors, and different types of hardware failures, as well as drives from different technologies (MLC, eMLC, SLC).</li> <li>As a result Schroder's&nbsp;study spans a broader range of error and failure modes, including wear-out effects across a drive&rsquo;s entire life. On the other hand, the Facebook study includes the role of some factors (temperature, bus power consumption, DRAM buffer usage) that our data does not account for.</li> </ul></div></div>",
-			"edge-observations": "None yet"
-		},
-		{
-			"from": 2,
-			"to": 4,
-			"edge-highlights": "none-2-4",
-			"edge-observations": "coming soon"
-		},
-		{
-			"from": 4,
-			"to": 5,
-			"edge-highlights": "none-4-5",
-			"edge-observations": "coming soon"
+			"edge-highlights": "This was an incremental study from MSR. The first paper talked about middlebox failures. The second paper talked about the inter and intra data center network failures and how they affect the services.",
+			"edge-observations": ""
 		},
 		{
 			"from": 5,
-			"to": 6,
-			"edge-highlights": "none-5-6",
-			"edge-observations": "coming soon"
+			"to": 1,
+			"edge-highlights": "<ul><li>First paper was a study of failures in enterprise networks. The second work talks about failures in Data Center Networks. Both the studies are first of their kinds.</li></ul>",
+			"edge-observations": ""
+		},
+		{
+			"from": 5,
+			"to": 4,
+			"edge-highlights": "<ul><li>Second paper is an informal survey of network failures from various literature and case studies. This cites the first paper, which is a work from HP</li></ul>",
+			"edge-observations": ""
+		},
+		{
+			"from": 6,
+			"to": 1,
+			"edge-highlights": "<ul><li>First paper was a study of web access failures while the second one talks about the failures in data center network elements.</li></ul>",
+			"edge-observations": ""
 		}
 	],
 	"timeline": [
 		{
-			"title": "Meza'15",
-			"publication": "Published in ACM Sigmetrics 2015",
-			"description": "This study done at Facebook was the first large-scale study of SSD failures in the field.",
-			"icon": "fa-facebook",
+			"title": "Padmanabhan'06",
+			"publication": "Published in ACM CoNEXT conference 2006",
+			"description": "This study was done at MSR, talks about failures in web accesses.",
+			"icon": "fa-windows",
 			"impact": "medium"
 		},
 		{
-			"title": "Schroeder'16",
-			"publication": "Published in FAST 2016",
-			"description": "Meza's work was followed by this work by Bianca at Google. It challenges many of the claims made in the previous work at Facebook and proposes that RBER (Raw Bit Error Rate) be seen as the main SSD failure measurement rate. <div class='row'> <div class='col-md-12'> <div class='embed-responsive embed-responsive-16by9'> <iframe class='embed-responsive-item' src='//www.youtube.com/embed/60OmhRJ0CUA'></iframe> </div> </div>",
-			"icon": "fa-google",
+			"title": "Gill'11",
+			"publication": "Published in SIGCOMM 2011",
+			"description": "This study was done at MSR, talks about failures in data network failures",
+			"icon": "fa-windows",
 			"impact": "high"
 		},
 		{
-			"title": "Narayanan'16",
-			"publication": "Published in FAST 2016",
-			"description": "This study was done at Microsoft and it builds on the previous studies done at Facebook and Google. It proposes to build machine learning models to predict SSD failures.",
+			"title": "Turner'12",
+			"publication": "Report from HP Labs",
+			"description": "This study was done at HP Labs, talks about failures in enterprise managed networks.",
+			"icon": "",
+			"impact": "medium"
+		},
+		{
+			"title": "Potharaju'13",
+			"publication": "Published in conference on Internet measurement conference 2013",
+			"description": "This study was done at MSR, talks about failures in middle boxes.",
 			"icon": "fa-windows",
-			"impact": "low"
+			"impact": "medium"
+		},
+		{
+			"title": "Potharaju'13",
+			"publication": "Published in annual Symposium on Cloud Computing 2013",
+			"description": "This study was done at MSR, talks about failures inter and intra datacenter networks.",
+			"icon": "fa-windows",
+			"impact": "high"
+		},
+		{
+			"title": "Bailis'14",
+			"publication": "Report from UC Berkley",
+			"description": "This study was done at UC Berkley. It is an informal survey of network failures.",
+			"icon": "",
+			"impact": "medium"
 		}
 	]
 };
