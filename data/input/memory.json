@@ -155,14 +155,14 @@
     {
       "title": "Schroeder '09",
       "publication": "Published in SIGMETRICS '09",
-      "description": "First large scale study of DRAM errors using Google's data centers. <br> <a href='https://www.cs.toronto.edu/~bianca/papers/sigmetrics09.pdf' target='_blank'><img src='http://imgur.com/mpmqk03' height='90%' width='90%'></a>",
+      "description": "First large scale study of DRAM errors using Google's data centers. <br> <a href='https://www.cs.toronto.edu/~bianca/papers/sigmetrics09.pdf' target='_blank'><img src='http://i.imgur.com/3RCMbEL.png' height='90%' width='90%'></a>",
       "icon": "fa-google",
       "impact": "high"
     },
     {
       "title": "Li '10",
       "publication": "Published in USENIXATC '10",
-      "description": "First study to look at addresses and consequently error patterns. Specifically, they were able to categorize errors and aggregate errors under single faults. <br> <a href='https://www.cs.rochester.edu/~kshen/papers/usenix2010-li.pdf' target='_blank'><img src='http://imgur.com/9Lgbeap' height='90%' width='90%'></a>",
+      "description": "First study to look at addresses and consequently error patterns. Specifically, they were able to categorize errors and aggregate errors under single faults. <br> <a href='https://www.cs.rochester.edu/~kshen/papers/usenix2010-li.pdf' target='_blank'><img src='http://i.imgur.com/H4t3qj3.png' height='90%' width='90%'></a>",
       "icon": "fa-info-circle",
       "impact": "medium"
     },
@@ -170,29 +170,29 @@
       "title": "Sridharan '12",
       "publication": "Published in SC '12",
       "description": "Proposed that faults are the proper mechanism to assess system health contrary to Schroeder et al.'s earlier work.",
-      "icon": "fa-superpowers",
+      "icon": "fa-database",
       "impact": "high"
     },
     {
       "title": "Sridharan '13",
       "publication": "Published in SC '13",
-      "description": "Solidified the idea fault rates vary significantly per vendor. <br> <a href='https://www.cs.virginia.edu/~gurumurthi/papers/SC13.pdf' target='_blank'><img src='http://imgur.com/v0ndhDS' height='90%' width='90%'></a>",
-      "icon": "fa-superpowers",
+      "description": "Solidified the idea fault rates vary significantly per vendor. <br> <a href='https://www.cs.virginia.edu/~gurumurthi/papers/SC13.pdf' target='_blank'><img src='http://i.imgur.com/25QFcRb.png' height='90%' width='90%'></a>",
+      "icon": "fa-bar-chart",
       "impact": "low"
     },
     {
       "title": "Martino '14",
       "publication": "Published in DSN '14",
-      "description": "Demonstrated the effectiveness of x8 Chipkill as a memory correction technology. <br> <a href='http://dl.acm.org/citation.cfm?id=2671853.2672356' target='_blank'><img src='http://imgur.com/19HgXdo' height='90%' width='90%'></a>",
-      "icon": "fa-superpowers",
+      "description": "Demonstrated the effectiveness of x8 Chipkill as a memory correction technology. <br> <a href='http://dl.acm.org/citation.cfm?id=2671853.2672356' target='_blank'><img src='http://i.imgur.com/XYpQnu3.png' height='90%' width='90%'></a>",
+      "icon": "fa-database",
       "impact": "medium"
     },
     {
       "title": "Sridharan '15",
       "publication": "Published in ASPLOS '15",
       "description": "Described points of contention in methodologies between research groups as well as validated previous conclusions with newer datasets.",
-      "icon": "fa-superpowers",
-      "impact": "medium"
+      "icon": "fa-refresh",
+      "impact": "high"
     }
   ]
 }

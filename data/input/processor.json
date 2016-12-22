@@ -67,7 +67,7 @@
       "title": "Mukherjee '03",
       "publication": "Published in MICRO 2003",
       "description": "Introduced the novel idea of Architectural Vulnerabilty Factors and we should determine FITs based on the rate of propagation of errors to the user rather than errors that still result in correct execution.",
-      "icon": "fa-flash",
+      "icon": "fa-percent",
       "impact": "medium"
     },
     {
@@ -80,7 +80,7 @@
     {
       "title": "Gupta '09",
       "publication": "Published in ICCD 2009",
-      "description": "Proposed an adaptive framework to monitor health overtime and predict failures. This could be used with a fluid approach to core allocation. <br> <a href='https://www.eecs.umich.edu/cse/awards/pdfs/iccd09.pdf' target='_blank'><img src='http://imgur.com/ZayALXa' height='90%' width='90%'></a>",
+      "description": "Proposed an adaptive framework to monitor health overtime and predict failures. This could be used with a fluid approach to core allocation. <br> <a href='https://www.eecs.umich.edu/cse/awards/pdfs/iccd09.pdf' target='_blank'><img src='http://i.imgur.com/Ifyptu1.png' height='90%' width='90%'></a>",
       "icon": "fa-flash",
       "impact": "low"
     },
@@ -88,14 +88,14 @@
       "title": "Sridharan '13",
       "publication": "Published in SC '13",
       "description": "First study to describe the effects of altitude on SRAM and DRAM faults. Additionally, one of the first large scale studies on SRAM faults.",
-      "icon": "fa-flash",
+      "icon": "fa-cloud",
       "impact": "high"
     },
     {   
       "title": "Sridharan '15", 
       "publication": "Published in ASPLOS '15", 
-      "description": "Identified the main contributors to faults. <br> <a href='https://www.cs.virginia.edu/~gurumurthi/papers/asplos15.pdf' target='_blank'><img src='http://imgur.com/65COgqJ' height='90%' width='90%'></a>", 
-      "icon": "fa-flash", 
+      "description": "Identified the main contributors to faults. <br> <a href='https://www.cs.virginia.edu/~gurumurthi/papers/asplos15.pdf' target='_blank'><img src='http://i.imgur.com/dapPHHr.png' height='90%' width='90%'></a>", 
+      "icon": "fa-exclamation",
       "impact": "high"
     }
   ]
